@@ -21,13 +21,3 @@ public class StudentService {
         return studentRepository.findAll();
     }
 }
-
-
-// To be added
-//new StudentModel(
-//        1L,
-//        "Mary",
-//        "mary.jammy@gmail.com",
-//        LocalDate.of(1989, 01,12),
-//        21
-//        )
