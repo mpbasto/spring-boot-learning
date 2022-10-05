@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity(name = "student")
 @Table
@@ -13,7 +14,7 @@ public class StudentModel {
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
     generator = "student_sequence")
-    private Long id;
+    private UUID id;
     private String name;
     private String email;
     private LocalDate dob;
@@ -25,7 +26,7 @@ public class StudentModel {
     }
 
     // Constructor with everything
-    public StudentModel(Long id, String name, String email, LocalDate dob, Integer age) {
+    public StudentModel(UUID id, String name, String email, LocalDate dob, Integer age) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -41,11 +42,11 @@ public class StudentModel {
         this.age = age;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
