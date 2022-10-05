@@ -1,10 +1,11 @@
 package com.example.demo.model;
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.UUID;
+import java.time.Period;
 
-@Entity(name = "student")
+@Entity
 @Table
 public class StudentModel {
 
@@ -14,10 +15,11 @@ public class StudentModel {
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
     generator = "student_sequence")
-    private UUID id;
+    private Long id;
     private String name;
     private String email;
     private LocalDate dob;
+    @Transient
     private Integer age;
 
 
@@ -26,27 +28,25 @@ public class StudentModel {
     }
 
     // Constructor with everything
-    public StudentModel(UUID id, String name, String email, LocalDate dob, Integer age) {
+    public StudentModel(Long id, String name, String email, LocalDate dob) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
     }
 
     // Constructor without id
-    public StudentModel(String name, String email, LocalDate dob, Integer age) {
+    public StudentModel(String name, String email, LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -75,7 +75,7 @@ public class StudentModel {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {

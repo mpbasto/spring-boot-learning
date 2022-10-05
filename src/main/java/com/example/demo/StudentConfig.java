@@ -18,14 +18,12 @@ public class StudentConfig {
             StudentModel mary = new StudentModel(
                     "Mary",
                     "mary.jammy@gmail.com",
-                    LocalDate.of(2000, 1,12),
-                    21
+                    LocalDate.of(2000, 1,12)
             );
             StudentModel ralph = new StudentModel(
                     "Ralph",
                     "ralph.lauren@gmail.com",
-                    LocalDate.of(2004, 8,23),
-                    21
+                    LocalDate.of(2004, 8,23)
             );
 
             repository.saveAll(
